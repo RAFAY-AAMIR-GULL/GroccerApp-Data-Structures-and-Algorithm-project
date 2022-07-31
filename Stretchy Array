@@ -1,0 +1,134 @@
+#include <iostream>
+using namespace std;
+
+class StretchyArrays
+{
+public:
+	int size = 10;
+	char* x = new char[size];
+	char* A = x;
+	StretchyArrays()
+	{
+		cout << "Hola!	You are working with strechy arrays\n\n";
+	}
+	int insert()
+	{
+		cout << "Enter a character array \\\\(not more than 10 characters)\\\\: \n";
+		for (int i = 0; i <= size; i++)
+		{
+			int temp = size;
+			if (i < size)
+			{
+				cin >> x[i];
+			}
+			else
+			{
+				char t;
+				cout << "Wanna enter more data? (Y/N): ";
+				cin >> t;
+				if (t == 'N' || t == 'n')
+					return size;
+				if (t == 'Y' || t == 'y')
+				{
+					size = size * 2;
+					x = new char[size];     // Initializing a new array of double the size of the previous one.
+					int k = 0;
+					for (int j = 0; j < (size / 2); j++)
+					{
+						x[j] = A[k];
+						k++;
+					}
+					A = x;
+					i--;
+				}
+			}
+		}
+	}
+	void search()
+	{
+		bool chec = false;
+		char t;
+		cout << "Enter char to search: ";
+		cin >> t;
+		for (int i = 0; i < size; i++)
+		{
+			if (t == A[i])
+			{
+				cout << A[i] << " found at " << i << endl;
+				chec = true;
+			}
+		}
+		if (chec == false)
+			cout << "Data not found!\n";
+	}
+	void del()
+	{
+		bool chec = false;
+		char t;
+		cout << "Enter a char to be deleted: ";
+		cin >> t;
+		for (int i = 0; i < size; i++)
+		{
+			if (t == A[i])
+			{
+				chec = true;
+				for (int j = i; j < size; j++)
+				{
+					if ((j + 1) < size)
+						A[j] = A[j + 1];
+				}
+			}
+		}
+		if (chec == false)
+			cout << "Data not found!\n";
+		else
+		{
+			size = size - 1;
+			cout << "Data deleted! successfully\n";
+		}
+	}
+	void print()
+	{
+		cout << "\nData present in the array:	\n";
+		for (int i = 0; i < size; i++)
+			cout << A[i] << " ";
+		cout << endl;
+	}
+};
+
+int main()
+{
+	cout << "\t\t\t\t|     RAFAY AAMIR GUL     |\n";
+	cout << "\t\t\t\t|         BSEE19047       |\n";
+	cout << "\t\t\t\t|     STRECHY ARRAYS      |\n\n\n";
+
+	StretchyArrays sa;
+	int s;
+	while (true)
+	{
+		cout << "\nEnter (1) to insert data\n"
+			<< "Enter (2) to delete data\nEnter (3) to search data\n"
+			<< "Enter (4) to print data \nEnter (5) to exit.\n";
+		cin >> s;
+		switch (s)
+		{
+		case 1:
+			sa.insert();
+			break;
+		case 2:
+			sa.del();
+			break;
+		case 3:
+			sa.search();
+			break;
+		case 4:
+			sa.print();
+			break;
+		case 5:
+			break;
+		default:
+			break;
+		}
+	}
+	return 0;
+}
