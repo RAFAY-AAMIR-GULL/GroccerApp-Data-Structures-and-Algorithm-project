@@ -2,7 +2,7 @@
 An interesting demonstration is available here named. **Video Profile of Project.mp4**
 
 
-I have made a Grocery management system like GrocerApp using OOP and Data Structures:
+>I have made a Grocery management system like GrocerApp using OOP and Data Structures:
 
 • **Link List**
 
