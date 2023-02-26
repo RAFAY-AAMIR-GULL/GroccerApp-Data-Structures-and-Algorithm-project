@@ -14,7 +14,7 @@ An interesting demonstration is available here named. **Video Profile of Project
 
 • **Queue**
 
-and many others unknowingly ☺ and pointers as well.
+and many others ☺ and pointers as well.
 
 
 A customer can see our products, can buy product and fill up the cart. Customer can edit
